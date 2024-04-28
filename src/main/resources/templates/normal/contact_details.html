@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1" >
+<title>Contact Details</title>
+</head>
+<body>
+<section>
+<div class="card me-3 ms-3" th:if="${contact}">
+<div class="card-body"  >
+<div  class="container text-center">
+
+<img src="" style="height:200px; width:200px;" class="my_profile_picture" th:src="@{'/img/'+${contact.image}}" alt="p"/>
+
+ <h3 class="mt-3">
+ 
+ <span th:text="${contact.name}">
+ </span>
+(<span th:text="${contact.secondName}">
+ 
+ 
+ </span> ) 
+ </h3>
+ 
+ 
+ <table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col"><span th:text="${contact.cId}"></span></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    
+     <tr>
+      <th scope="row">Phone</th>
+      <td ><span th:text="${contact.phone}"></span></td>
+      
+    </tr>
+     <tr>
+      <th scope="row">Work</th>
+      <td ><span th:text="${contact.work}"></span></td>
+      
+    </tr>
+     <tr>
+      <th scope="row">Email</th>
+      <td ><span th:text="${contact.email}"></span></td>
+      
+    </tr>
+ 
+  </tbody>
+</table>
+<div class="description mt-3 mb-3">
+<th:block th:utext="${contact.description}"></th:block>
+
+</div>
+
+<div>
+  <a th:href="@{'/normal/delete/'+${contact.cId}}" class="btn btn-danger btn-sm mb-3">Delete</a>
+  
+     <form th:action="@{'/normal/update_contact/'+${contact.cId}}" method="post" class="mt-2"> 
+       <button type="submit" class="btn btn-success btn-sm">Update</button>
+       </form>
+      </div>
+
+<a href="" th:href="@{/normal/show_contacts/0}" class="btn btn-outline-primary" role="button" aria-pressed="true">Go Back</a>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+ 
+
+</section>
+</body>
+</html> 
